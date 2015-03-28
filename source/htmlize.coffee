@@ -93,6 +93,8 @@ Page = React.createClass
 
     <html>
       <head>
+        <meta charSet="utf-8" />
+        <title>Research on {@props.title}</title>
         <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
       </head>
       <body>
