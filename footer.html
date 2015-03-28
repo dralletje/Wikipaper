@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  function subst() {
+    document.location.search.substring(1).split('&').map(function(x) {
+      return x.split('=', 2).map(unescape);
+
+    }).forEach(function(x) {
+      var key = x[0], value = x[1];
+
+      if(key === 'page' || key === 'topage') {
+        value = value - 1;
+
+        // Don't show on cover
+        if(value === 0) {
+          document.body.innerHTML = ''
+        }
+      }
+
+      Array.prototype.slice.call(document.getElementsByClassName(key)).forEach(function(el) {
+        el.textContent = value
+      })
+    })
+
+  }
+  </script>
+</head>
+<body style="border:0; height: 40px;" onload="subst()">
+  <table style="border-bottom: 1px solid black; width: 100%; padding-top: 20px;">
+    <tr>
+      <td class="section"></td>
+      <td style="text-align:right">
+        Page <span class="page"></span> of <span class="topage"></span>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
