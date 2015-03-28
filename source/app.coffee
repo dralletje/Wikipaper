@@ -40,6 +40,6 @@ http.createServer (req, res) ->
   .then(send res)
   .catch (err) ->
     console.log err.stack
-    res.send 'Sorry!'
+    res.end 'Sorry!'
 
 .listen 8083

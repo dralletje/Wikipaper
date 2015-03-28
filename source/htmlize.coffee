@@ -9,7 +9,7 @@ RefInText = React.createClass
 
 
 parseText = (text) ->
-  text.split(/(\[\d+\])/).map (text, i) ->
+  text?.split(/(\[\d+\])/).map (text, i) ->
     match = text.match /\[(\d+)\]/
     if match?
       <RefInText to={match[1]} key={i} />
